@@ -23,9 +23,33 @@ NOTE: compare the files to see the added/changes in the stages of the Jenkins pi
 - upload to elastic container service
 - slack_notification (Using Slack Notification Plugin) [ALWAYS]
 
+### Build Triggers
+
+#### Git Webhook
+
+Steps:
+
+1. Repo Settings -> Create GitHub Webhook -> `http://<jenkins-ip>:8080/github-webhook/` (Make sure Jenkins server allows traffic from anywhere on port 8080)
+2. Pipeline Configure -> Enable GitHub hook trigge fir GITScm Polling
+
+#### Poll SCM (Jenkins reaches GitHub to check for any commit)
+
+Steps:
+
+1. Enable Poll SCM on pipeline configuration.
+2. Define cron job to check the GitHub commit at which interval.
+
+#### Build Periodically
+
+Steps:
+
+1. Enable Build Periodically on pipeline configuration.
+2. Define a cron job and the pipeline will trigger at that specific time regularly.
+3. Example: `30 20 * * 1-5` triggers pipeline at 8:30PM Monday to Friday. (SEC HR DOM MONTH DOW)
+
 ### Jenkins Remote Trigger
 
-Create a token `<remote-build-token>` from the pipeline configuration
+1. Create a token `<remote-build-token>` from the pipeline configuration.
 
 ##### Job URL
 
