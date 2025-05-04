@@ -3,7 +3,7 @@ pipeline{
     stages {
         stage("Build"){
             steps{
-                sh 'echo "Build Changed."'    
+                sh 'echo "Poll SCM test"'    
             }
         }
     }
