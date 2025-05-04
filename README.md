@@ -68,3 +68,5 @@ Jenkins-Crumb:`<crumb>`
 ##### Remotely Pipeline Execution Command:
 
 curl -I -X POST http://username:token@`<jenkins-ip>`:8080/job/build-trigger/build?token=`<token-name>` -H "Jenkins-Crumb:`<crumb>`"
+
+We can run the job using the above URL from anywhere, bash scripts, Python, Ruby, Ansible, any programming language.
